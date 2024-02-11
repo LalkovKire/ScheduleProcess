@@ -1,0 +1,22 @@
+<div class="container-fluid d-flex flex-column justify-content-start">
+    <table class="table-responsive table-bordered" [formGroup]="formGroup">
+      <thead>
+        <tr class="custom-table-header">
+          <th scope="col">Процес</th>
+          <th scope="col">Време на извршување</th>
+          <th scope="col">Време на пристигнување</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="proc">
+        <tr *ngFor="let process of proc.controls let i = index" formGroupName="{{i}}" [class.custom-row-background-one]="i % 2 === 0" [class.custom-row-background-two]="i % 2 !== 0">
+          <th scope="row">{{ process.value.name }}</th>
+          <td><input type="number" formControlName="executionTime"  [class.custom-input-one]="i % 2 === 0" [class.custom-input-two]="i % 2 !== 0"></td>
+          <td><input type="number" formControlName="arrivalTime" [class.custom-input-one]="i % 2 === 0" [class.custom-input-two]="i % 2 !== 0"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-start">
+      <p *ngIf="!processNumberState" class="text-danger w-100">*Максимум број на процеси е 7</p>
+    </div>
+    <button class="btn cts-btn text-white" type="button" (click)="addRow()">+</button>
+</div>

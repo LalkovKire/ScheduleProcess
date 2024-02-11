@@ -1,0 +1,13 @@
+.custom-container {
+    width: 90%;
+    height: 100%;
+}
+.custom-holder {
+    margin-top: 50px;
+    width: 700px;
+    height: 600px;
+}
+.custom-selection {
+    width: 50%;
+    height: 100%;
+}
